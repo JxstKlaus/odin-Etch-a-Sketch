@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+html{
+    background-color: aqua;
+}
+
+.grid-container{
+    width: 512px;
+    height: 512px;
+    .row{
+        display: flex;
+        .item{
+            border: 1px solid black;
+        }
+    }
+}
