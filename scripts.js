@@ -12,7 +12,7 @@ const colorBtn = document.querySelector('.color')
 const rainbowBtn = document.querySelector('.rainbow')
 const eraserBtn = document.querySelector('.eraser')
 const clearBtn = document.querySelector('.clear')
-const slider = document.querySelector('#myRange')
+const slider = document.querySelector('.slider')
 const sliderOutput = document.querySelector('.output')
 
 let mouseDown = false
