@@ -71,6 +71,7 @@ html{
 
 
 .slider {
+    appearance: none;
     -webkit-appearance: none;
     width: 70%;
     height: 7px;

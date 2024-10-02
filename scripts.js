@@ -12,6 +12,8 @@ const colorBtn = document.querySelector('.color')
 const rainbowBtn = document.querySelector('.rainbow')
 const eraserBtn = document.querySelector('.eraser')
 const clearBtn = document.querySelector('.clear')
+const slider = document.querySelector('#myRange')
+const sliderOutput = document.querySelector('.output')
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
@@ -21,11 +23,13 @@ colorBtn.onclick = ()=> setCurrentMode('color')
 rainbowBtn.onclick = ()=> setCurrentMode('rainbow')
 eraserBtn.onclick = ()=> setCurrentMode('eraser')
 clearBtn.onclick = reloadGrid
-
+slider.oninput = setGridSizeWithSlider
 
 function drawGrid(size){
     gridItemSize = gridContainer.getBoundingClientRect().width / currentSize;
-    console.log(gridItemSize)
+    console.log("width "+gridContainer.getBoundingClientRect().width)
+    console.log("size "+currentSize)
+    console.log('grid size ' +gridContainer.getBoundingClientRect().width / currentSize)
     for (let row=0; row<size; row++){
         let row = document.createElement("div");
         row.className = 'row'
@@ -82,8 +86,10 @@ function activateButton(newMode){
     else if (currentMode === 'eraser') eraserBtn.classList.remove('active')
 }
 
-
-
+function setGridSizeWithSlider(){
+    sliderOutput.textContent = `${this.value}x${this.value}`;
+    changeSize(this.value)
+}
 
 
 
@@ -91,4 +97,5 @@ function activateButton(newMode){
 window.onload = ()=>{
     drawGrid(DEFAULT_SIZE)
     activateButton(DEFAULT_MODE)
+    sliderOutput.textContent = `${slider.value}x${slider.value}`;
 }
